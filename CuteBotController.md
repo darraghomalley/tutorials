@@ -3,8 +3,8 @@
 # STEM - CuteBot Controller
 ## Step 1 - Let's build a micro:bit that can drive our CuteBot 
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal. 
-The A button will send "L" for left; the B button will send "R" for right; A+B together will send "F" for forwards.  
-Tilting your micro:bit towards you will send "R" for reverse. Let's start by showing our micro:bit name.
+Pressing A+B together will send "Forwards"; the A button will send "Left"; the B button will send "Right".  
+Tilting your micro:bit towards you will send "Reverse". Let's start by showing our micro:bit name.
 ```template
 //
 ```
@@ -37,47 +37,99 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 5 - drag in pitch
-Drag in pitch 
+Drag in pitch and set ">" 60
 ```blocks
 loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) == 60) {
+    if (input.rotation(Rotation.Pitch) > 60) {
     	
     }
 })
 ```
-## Step 6 - radio send "B" for Backwards
-Drag in pitch 
+## Step 6 - Add radio send "Backwards"
+Drag radio send string into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) == 60) {
-        radio.sendString("B")    	
+    if (input.rotation(Rotation.Pitch) > 60) {
+        radio.sendString("Backwards")    	
     }
 })
 ```
 ## Step 7 - Click "+" twice to show an else-if placeholder
-Click "+" at the bottom of the if block to show an else-if placeholder 
+Click "+" at the bottom of the if-block twice to show an else-if placeholder 
 ```blocks
 loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) == 60) {
-        radio.sendString("B")    	
-    }
-})
-```
-## Step 8 - Add 
-Click "+" at the bottom of the if block to show an else-if placeholder 
-```blocks
-loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) == 60) {
-        radio.sendString("B")
-    } else if (input.buttonIsPressed(Button.AB)) {
-        radio.sendString("F")
+    if (input.rotation(Rotation.Pitch) > 60) {
+        radio.sendString("Backwards")
+    } else if (true) {
+    	
     } else {
     	
     }
 })
 ```
-
-## Step 15 - download and test
+## Step 8 - Add button A+B is pressed to go forwards 
+Add button b is pressed to the else-if and add a radio send string "Reverse"```blocks
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) == 60) {
+        radio.sendString("Backwards")
+    } else if (input.buttonIsPressed(Button.AB)) {
+        radio.sendString("Forwards")
+    } else {
+    	
+    }
+})
+```
+## Step 9 - Add button A is pressed to go left 
+Add button b is pressed to the else-if and add a radio send string "Reverse"
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        radio.sendString("Backwards")
+    } else if (input.buttonIsPressed(Button.AB)) {
+        radio.sendString("Forwards")
+    } else if (input.buttonIsPressed(Button.A)) {
+        radio.sendString("Left")
+    
+    } else {
+    }
+})
+```
+## Step 10 - Add button B is pressed to go right 
+Add button B is pressed to the else-if and add a radio send string "Forwards"
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        radio.sendString("Backwards")
+    } else if (input.buttonIsPressed(Button.AB)) {
+        radio.sendString("Forwards")
+    } else if (input.buttonIsPressed(Button.A)) {
+        radio.sendString("Left")
+    } else if (input.buttonIsPressed(Button.B)) {
+        radio.sendString("Right")
+    
+    } else {
+    }
+})
+```
+## Step 11 - Complete the if-block by adding the "Stop" radio message 
+Complete the if-block by adding radio send string "Stop" 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        radio.sendString("Backwards")
+    } else if (input.buttonIsPressed(Button.AB)) {
+        radio.sendString("Forwards")
+    } else if (input.buttonIsPressed(Button.A)) {
+        radio.sendString("Left")
+    } else if (input.buttonIsPressed(Button.B)) {
+        radio.sendString("Right")
+    } else {
+        radio.sendString("Stop")
+    }
+})
+```
+## Step 12 - download and test
 Download your code onto your micro:bit to see it working
 
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
