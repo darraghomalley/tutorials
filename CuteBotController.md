@@ -1,10 +1,10 @@
 ### @explicitHints true
 # STEM - CuteBot Controller
 ## Step 1 - Let's build a micro:bit that can drive our CuteBot 
-Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal. 
+Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.  
 Pressing A+B together will send "Forwards"; the A button will send "Left"; the B button will send "Right".  
-Tilting your micro:bit towards you will send "Reverse".
-Let's start by showing our micro:bit name. 
+Tilting your micro:bit towards you will send "Reverse".  
+Let's start by showing our micro:bit name.   
 Click ``||basic:show string||``
 ```template
 //
