@@ -2,26 +2,9 @@
 # STEM - CuteBot Controller
 ## Step 1 - Let's build a micro:bit that can drive our CuteBot 
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.  
-Pressing A+B together will send "Forwards"; the A button will send "Left"; the B button will send "Right".  
-Tilting your micro:bit towards you will send "Reverse".  
-Let's start by showing our micro:bit name.   
-Click ``||basic:Basic > show string||``
-Click ``||basic:Basic : show string||``
-Click ``||basic:Basic: show string||``
-Click ``||basic:Basic:show string||``
-Click ``||control:... more:device name||``
-Click ``||control:Control:... more:device name||``Click ``||control||``
-Click ``||control:...more||``
-Click ``||control:deviceName||``
-Click ``||radio:Radio:set group||``
-Click ``||radio:send string||``
-Click ``||loops:everyInterval||``
-Click ``||loops:every 500ms||``
-Click ``||loops:Loops:every 500ms||``
-Click ``||logic:if||``
-Click ``||logic:Logic: if true then||``
-Click ``||input:... more:rotation||``
-Click ``||input:... more||``
+``||input:on button A+B pressed||`` will send "Forwards"; ``||input:on button A pressed||`` will send "Left"; ``||input:on button B pressed||`` will send  "Right".
+Using ``||input:rotation (pitch)||``, when you tilt your micro:bit towards you will send "Reverse".  
+Let's start by dragging ``||control:device name||`` into a ``||basic:show string||`` block to show our micro:bit's name. 
 ```template
 //
 ```
@@ -29,23 +12,22 @@ Click ``||input:... more||``
 basic.showString(control.deviceName())
 ```
 ## Step 2 - Set your radio group
-Now set your radio group number and show it on start up.
+Now use ``||radio:set group||`` to set your radio group number; also, show your radio group number using ``||basic:show string||``.
 ```blocks
 basic.showString(control.deviceName())
 radio.setGroup(1)
 basic.showString("1")
 ```
 ## Step 3 - Let's add a Loop and if block
-To control our CuteBot we will need a loop-block; inside the loop block we will need an if-block
+To control your CuteBot, drag a ``||loops:every 500ms||`` block onto your canvas; inside the loop block add a ``||logic:if true||`` block
 ```blocks
 loops.everyInterval(100, function () {
-    if (true) {
-    	
+    if (true) {    	
     }
 })
 ```
-## Step 4 - add a number comparer
-Drag in number comparer from the Logic menu
+## Step 4 - add a number comparision
+Drag a ``||logic:0=0||`` block into the if-block 
 ```blocks
 loops.everyInterval(100, function () {
     if (0 == 0) {
@@ -53,8 +35,8 @@ loops.everyInterval(100, function () {
     }
 })
 ```
-## Step 5 - add pitch to left side of number comparer
-Drag in pitch from Input > ... more and set the comparer to ">" 60 (greater than 60)
+## Step 5 - add pitch to left side of number comparision
+Drag ``||input:rotation||`` into left side of the number comparision and set to ">" 60 (greater than 60)
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -63,7 +45,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 6 - Add radio send "Backwards"
-Drag radio send string into the if-block and send the value "Backwards" 
+Drag ``||radio:send string||`` into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -85,7 +67,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 8 - Add button A+B is pressed to go forwards 
-Add button A+B is pressed to the else-if and add a radio send string "Forwards"
+Add ``||input:button A+B is pressed||`` to the else-if and add a ``||radio:send string||`` block to send "Forwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) == 60) {
@@ -98,7 +80,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 9 - Add button A is pressed to go left 
-Add button A is pressed to the else-if and add a radio send string "Left"
+Add ``||input:button A is pressed||`` to the else-if and add a ``||radio:send string||`` block to send "Left" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -113,7 +95,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 10 - Add button B is pressed to go right 
-Add button B is pressed to the else-if and add a radio send string "Right"
+Add ``||input:button B is pressed||`` to the else-if and add a ``||radio:send string||`` block to send "Right" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -130,7 +112,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 11 - Complete the if-block by adding the "Stop" radio message 
-Complete the if-block by adding radio send string "Stop" 
+Complete the if-block by adding a ``||radio:send string||`` block to send "Stop" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
