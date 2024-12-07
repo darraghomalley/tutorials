@@ -1,5 +1,5 @@
 [comment]: <> (Open this page at https://darraghomalley.github.io/tutorials/)
-
+![JPMC STEM Logo](https://github.com/darraghomalley/tutorials/blob/master/stem-logo-no-margin.png?raw=true)
 ## Tutorials
 * [Code Club Badge](/tutorials/CodeClubBadge)
 * [Quick Draw](/tutorials/QuickDraw)
