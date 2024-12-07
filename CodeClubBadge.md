@@ -1,8 +1,8 @@
-### @explicitHints true
+
 # STEM - Code Club Badge
 ## Step 1 - Let's build a Code Club Badge 
 Let's build a Code Club Badge to show your Code Club Team's name and your micro:bit's name.
-Let's start by creating a Variable called "Team", your micro:bit will use this to show your team name.Make sure you enter your Team name in the "Team" variable.
+Let's start by creating a Variable called "Team", your micro:bit will use this to show your team name. Make sure you enter your Team name in the "Team" variable.
 ```template
 //
 ```
