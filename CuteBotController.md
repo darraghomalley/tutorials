@@ -6,11 +6,13 @@ Pressing A+B together will send "Forwards"; the A button will send "Left"; the B
 Tilting your micro:bit towards you will send "Reverse".  
 Let's start by showing our micro:bit name.   
 Click ``||basic:show string||``
-Click ``||control:device name||``
+Click ``||control:... more:device name||``
+Click ``||control:deviceName||``
 Click ``||radio:set group||``
+Click ``||radio:send string||``
 Click ``||loops:everyInterval||``
 Click ``||logic:if||``
-Click ``||input:rotation||``
+Click ``||input:... more:rotation||``
 ```template
 //
 ```
