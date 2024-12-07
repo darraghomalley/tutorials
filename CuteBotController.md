@@ -129,7 +129,12 @@ loops.everyInterval(100, function () {
     }
 })
 ```
-## Step 12 - download and test
+## Step 12 - Add radio send string "Rainbow" to on logo pressed 
+Complete the if-block by adding radio send string "Stop" 
+```blocks
+input.logo.pressed(){}
+```
+## Step 13 - download and test
 Download your code onto your micro:bit to see it working
 
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
