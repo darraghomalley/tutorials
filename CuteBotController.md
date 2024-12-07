@@ -7,12 +7,15 @@ Tilting your micro:bit towards you will send "Reverse".
 Let's start by showing our micro:bit name.   
 Click ``||basic:show string||``
 Click ``||control:... more:device name||``
+Click ``||control||``
+Click ``||control:...more||``
 Click ``||control:deviceName||``
 Click ``||radio:set group||``
 Click ``||radio:send string||``
 Click ``||loops:everyInterval||``
 Click ``||logic:if||``
 Click ``||input:... more:rotation||``
+Click ``||input:... more||``
 ```template
 //
 ```
