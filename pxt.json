@@ -10,7 +10,8 @@
         "main.ts",
         "README.md",
         "CodeClubBadge.md",
-        "QuickDraw.md"
+        "QuickDraw.md",
+        "CuteBotController.md"
     ],
     "testFiles": [
         "test.ts"
