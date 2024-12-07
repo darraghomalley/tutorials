@@ -1,7 +1,9 @@
 
 > Open this page at [https://darraghomalley.github.io/tutorials/](https://darraghomalley.github.io/tutorials/)
 
-
+## Tutorials
+* [Code Club Badge](/Tutorials/CodeClubBadge)
+* [Quick Draw](/Tutorials/QuickDraw)
 
 ## Edit this project
 
