@@ -5,15 +5,21 @@ Let's build a micro:bit project that will drive a CuteBot by sending messages ov
 Pressing A+B together will send "Forwards"; the A button will send "Left"; the B button will send "Right".  
 Tilting your micro:bit towards you will send "Reverse".  
 Let's start by showing our micro:bit name.   
-Click ``||basic:show string||``
+Click ``||basic:Basic > show string||``
+Click ``||basic:Basic : show string||``
+Click ``||basic:Basic: show string||``
+Click ``||basic:Basic:show string||``
 Click ``||control:... more:device name||``
-Click ``||control||``
+Click ``||control:Control:... more:device name||``Click ``||control||``
 Click ``||control:...more||``
 Click ``||control:deviceName||``
-Click ``||radio:set group||``
+Click ``||radio:Radio:set group||``
 Click ``||radio:send string||``
 Click ``||loops:everyInterval||``
+Click ``||loops:every 500ms||``
+Click ``||loops:Loops:every 500ms||``
 Click ``||logic:if||``
+Click ``||logic:Logic: if true then||``
 Click ``||input:... more:rotation||``
 Click ``||input:... more||``
 ```template
