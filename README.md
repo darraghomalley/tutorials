@@ -1,5 +1,4 @@
-
-// Open this page at [https://darraghomalley.github.io/tutorials/](https://darraghomalley.github.io/tutorials/)
+[comment]: <> (Open this page at https://darraghomalley.github.io/tutorials/)
 
 ## Tutorials
 * [Code Club Badge](/tutorials/CodeClubBadge)
