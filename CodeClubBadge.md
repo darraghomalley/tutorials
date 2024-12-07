@@ -1,4 +1,3 @@
-
 # STEM - Code Club Badge
 ## Step 1 - Let's build a Code Club Badge 
 Let's build a Code Club Badge to show your Code Club Team's name and your micro:bit's name.
