@@ -1,3 +1,4 @@
+
 ### @explicitHints true
 # STEM - CuteBot Controller
 ## Step 1 - Let's build a micro:bit that can drive our CuteBot 
@@ -46,6 +47,15 @@ loops.everyInterval(100, function () {
 ```
 ## Step 6 - radio send "B" for Backwards
 Drag in pitch 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) == 60) {
+        radio.sendString("B")    	
+    }
+})
+```
+## Step 7 - Click if block to show else-if
+Click the if block's "+" to show an else-if placeholder 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) == 60) {
