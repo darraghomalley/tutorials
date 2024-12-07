@@ -6,11 +6,13 @@ Pressing A+B together will send "Forwards"; the A button will send "Left"; the B
 Tilting your micro:bit towards you will send "Reverse".  
 Let's start by showing our micro:bit name.   
 Click ``||basic:show string||``
+Click ``||control:device name||``
+Click ``||radio:set group||``
+Click ``||loop:everyInterval||``
 ```template
 //
 ```
 ```blocks
-// @validate-exists
 basic.showString(control.deviceName())
 ```
 ## Step 2 - Set your radio group
