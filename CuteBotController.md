@@ -8,7 +8,9 @@ Let's start by showing our micro:bit name.
 Click ``||basic:show string||``
 Click ``||control:device name||``
 Click ``||radio:set group||``
-Click ``||loop:everyInterval||``
+Click ``||loops:everyInterval||``
+Click ``||logic:if||``
+Click ``||input:rotation||``
 ```template
 //
 ```
