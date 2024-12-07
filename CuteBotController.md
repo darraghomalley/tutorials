@@ -54,8 +54,8 @@ loops.everyInterval(100, function () {
     }
 })
 ```
-## Step 7 - Click if block to show else-if
-Click the if block's "+" to show an else-if placeholder 
+## Step 7 - Click "+" twice to show an else-if placeholder
+Click "+" at the bottom of the if block to show an else-if placeholder 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) == 60) {
@@ -63,6 +63,20 @@ loops.everyInterval(100, function () {
     }
 })
 ```
+## Step 8 - Add 
+Click "+" at the bottom of the if block to show an else-if placeholder 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) == 60) {
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+        radio.sendString("F")
+    } else {
+    	
+    }
+})
+```
+
 ## Step 15 - download and test
 Download your code onto your micro:bit to see it working
 
