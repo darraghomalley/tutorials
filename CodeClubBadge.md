@@ -1,3 +1,4 @@
+### @explicitHints true
 # STEM - Code Club Badge
 ## Step 1 - Let's build a Code Club Badge 
 Let's build a Code Club Badge to show your Code Club Team's name and your micro:bit's name.
@@ -26,3 +27,4 @@ input.onButtonPressed(Button.B, function () {
 ## Step 4 - Try it out on your micro:bit
 Download your code onto your micro:bit to see it working
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
