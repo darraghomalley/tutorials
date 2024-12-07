@@ -7,5 +7,3 @@
 * [Quick Draw - makecode Tutorial](https://makecode.microbit.org/#tutorial:github:darraghomalley/tutorials/QuickDraw)
 * [CuteBot Controller - How To](/tutorials/CuteBotController)
 * [CuteBot Controller - makecode Tutorial](https://makecode.microbit.org/#tutorial:github:darraghomalley/tutorials/CuteBotController)
-
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
