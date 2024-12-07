@@ -140,3 +140,4 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 ## Step 13 - download and test
 Download your code onto your micro:bit to see it working
 
+<script src="https://makecode.com/gh-pages-embed.js"></script>
