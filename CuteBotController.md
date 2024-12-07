@@ -4,7 +4,8 @@
 ## Step 1 - Let's build a micro:bit that can drive our CuteBot 
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal. 
 Pressing A+B together will send "Forwards"; the A button will send "Left"; the B button will send "Right".  
-Tilting your micro:bit towards you will send "Reverse". Let's start by showing our micro:bit name.
+Tilting your micro:bit towards you will send "Reverse".
+Let's start by showing our micro:bit name.
 ```template
 //
 ```
@@ -130,9 +131,11 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 12 - Add radio send string "Rainbow" to on logo pressed 
-Complete the if-block by adding radio send string "Stop" 
+To flash the Cutebot's lights, drag on logo pressed onto canvas and use radio send string to send "Rainbow" 
 ```blocks
-input.logo.pressed(){}
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    radio.sendString("RAINBOW")
+})
 ```
 ## Step 13 - download and test
 Download your code onto your micro:bit to see it working
