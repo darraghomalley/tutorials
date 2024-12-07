@@ -20,7 +20,7 @@ radio.setGroup(1)
 basic.showString("1")
 ```
 ## Step 3 - Let's add a Loop and if block
-To control our CuteBot we will need a Loop block; inside the loop block we will need and if statement
+To control our CuteBot we will need a loop-block; inside the loop block we will need an if-block
 ```blocks
 loops.everyInterval(100, function () {
     if (true) {
@@ -28,8 +28,8 @@ loops.everyInterval(100, function () {
     }
 })
 ```
-## Step 4 - add number comparer
-Drag in number comparer 
+## Step 4 - add a number comparer
+Drag in number comparer from the Logic menu
 ```blocks
 loops.everyInterval(100, function () {
     if (0 == 0) {
@@ -37,8 +37,8 @@ loops.everyInterval(100, function () {
     }
 })
 ```
-## Step 5 - drag in pitch
-Drag in pitch and set ">" 60
+## Step 5 - add pitch to left side of number comparer
+Drag in pitch from Input > ... more and set the comparer to ">" 60 (greater than 60)
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -69,7 +69,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 8 - Add button A+B is pressed to go forwards 
-Add button b is pressed to the else-if and add a radio send string "Reverse"```blocks
+Add button A+B is pressed to the else-if and add a radio send string "Forwards"
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) == 60) {
@@ -82,7 +82,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 9 - Add button A is pressed to go left 
-Add button b is pressed to the else-if and add a radio send string "Reverse"
+Add button A is pressed to the else-if and add a radio send string "Left"
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
@@ -97,7 +97,7 @@ loops.everyInterval(100, function () {
 })
 ```
 ## Step 10 - Add button B is pressed to go right 
-Add button B is pressed to the else-if and add a radio send string "Forwards"
+Add button B is pressed to the else-if and add a radio send string "Right"
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
