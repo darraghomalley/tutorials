@@ -1,31 +1,95 @@
 ### @explicitHints true
 # STEM - CuteBot Controller
-## Step 1 - Let's build a micro:bit that can drive our CuteBot 
-Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.  
-``||input:on button A+B pressed||`` will send "Forwards"; ``||input:on button A pressed||`` will send "Left"; ``||input:on button B pressed||`` will send  "Right".
-Using ``||input:rotation (pitch)||``, when you tilt your micro:bit towards you will send "Reverse".  
-Let's start by dragging ``||control:Control:device name||`` into a ``||basic:Basic:show string||`` block to show our micro:bit's name. 
+## Step ... - ... 
+Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
+To help you out, we've created some Variables that you will need later: ``||variables:Forwards, Left, Right, etc.||``. 
 ```template
-//
+let Direction = "STOP"
+let Forwards = "FORWARDS"
+let Reverse = "REVERSE"
+let Left = "LEFT"
+let Right = "RIGHT"
+let Stop = "STOP"
 ```
 ```blocks
-basic.showString(control.deviceName())
+let Direction = "STOP"
+let Forwards = "FORWARDS"
+let Reverse = "REVERSE"
+let Left = "LEFT"
+let Right = "RIGHT"
+let Stop = "STOP"
 ```
-## Step 2 - Set your radio group
-Now use ``||radio:Radio:set group||`` to set your radio group number; also, show your radio group number using ``||basic:Basic:show string||``.
+## Step ... - ... 
+Let's start by dragging a ``||basic:Basic:show string||`` block into the top of ``||basic:on start||``.
+Now let's drag ``||control:Control:device name||`` into to ``||basic:show string||``; this will show our micro:bit's name. 
+```blocks
+basic.showString(control.deviceName())
+let Direction = "STOP"
+let Forwards = "FORWARDS"
+```
+
+## Step ... - ...
+Now add ``||radio:Radio:set group||`` ``||basic:on start||``; this will set your radio group number. Also, show your radio group number using ``||basic:Basic:show string||``. 
 ```blocks
 basic.showString(control.deviceName())
 radio.setGroup(1)
 basic.showString("1")
+let Direction = "STOP"
+let Forwards = "FORWARDS"
 ```
-## Step 3 - Let's add a Loop and if block
+## Step ... - Let's add a Loop block
 To control your CuteBot, drag a ``||loops:Loops:every 500ms||`` block onto your canvas, change the 500ms to 100ms.
-Inside the loop block add a ``||logic:Logic:if true then||`` block
 ```blocks
 loops.everyInterval(100, function () {
-    if (true) {    	
+})
+```
+## Step ... - Let's set our direction to stop
+First thing to do is to set ``||variables:Direction||`` to ``||variables:Stop||``. In the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
+```blocks
+loops.everyInterval(100, function () {
+let Direction = Stop
+})
+```
+## Step ... - Let's create the check for button A
+Drag an ``||logic:if true then||`` block into the ``||loops:every 100ms||`` block. 
+Drag a ``||input:button A is pressed||`` block into the ``||logic:if true then||`` block. Drag a ``||variables:set Direction = 0||`` block inside the ``||logic:if||`` statement. Replace the 0 with ``||variables:Left||``.
+```blocks
+loops.everyInterval(100, function () {
+let Direction = Stop
+    if (input.buttonIsPressed(Button.A)) {
+        Direction = Left
     }
 })
+```
+## Step ... - Let's create the check for button B
+Duplicate the ``||logic:if button A is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button A is pressed||`` block; change the button to B and the direction to ``||variables:Right||``.
+```blocks
+loops.everyInterval(100, function () {
+let Direction = Stop
+    if (input.buttonIsPressed(Button.A)) {
+        Direction = Left
+    }
+    if (input.buttonIsPressed(Button.B)) {
+        Direction = Right
+    }
+})
+```
+## Step ... - Let's create the check for button A+B
+Duplicate the ``||logic:if button B is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button B is pressed||`` block; change the button to A+B and the direction to ``||variables:Forwards||``.
+```blocks
+loops.everyInterval(100, function () {
+let Direction = Stop
+    if (input.buttonIsPressed(Button.A)) {
+        Direction = Left
+    }
+    if (input.buttonIsPressed(Button.B)) {
+        Direction = Right
+    }
+    if (input.buttonIsPressed(Button.AB)) {
+        Direction = Forwards
+    }
+})
+```
 ```
 ## Step 4 - add a number comparision
 Drag a ``||logic:Logic:0=0||`` block into the if-block 
