@@ -23,7 +23,8 @@ radio.setGroup(255)
 ```
 ## Step 3 - Send your micro:bit's name over radio using A+B 
 Drag ``||input:Input:on button A pressed||`` onto your canvas; change A to A+B.
-Drag ``||control:Control:device name||`` into ``||input:on button A pressed||`` 
+Drag ``||radio:Radio:send string||`` into ``||input:on button A pressed||`` 
+Drag ``||control:Control:device name||`` into ``||radio:send string||`` 
 ```blocks
 input.onButtonPressed(Button.AB, function () {
     radio.sendString(control.deviceName())

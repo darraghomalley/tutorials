@@ -16,7 +16,7 @@ Team = "Zork"
 Let's show your team name when the A button is pressed.
 Drag an ``||input:Input:on button A pressed||`` block onto the canvas.
 Drag a ``||basic:Basic:show string||`` block onto ``||input:button A pressed||`` block.
-Drag ``||variables:Variables:show string||`` into your ``||basic:show string||`` block.
+Drag ``||variables:Variables:Team||`` into your ``||basic:show string||`` block.
 ```blocks
 input.onButtonPressed(Button.A, function () {
     basic.showString(Team)
