@@ -1,35 +1,34 @@
 ### @explicitHints true
 # STEM - CuteBot Controller
-## Step ... - ... 
+## Let's build a robot controller 
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
-To help you out, we've created some Variables that you will need later: ``||variables:Forwards, Left, Right, etc.||``. 
+To help you out, we've created some variables that you will need later: ``||variables: Forwards, Reverse, Left, Right, Stop||``. Click ``|Next|``
 ```template
-let Direction = "STOP"
 let Forwards = "FORWARDS"
 let Reverse = "REVERSE"
 let Left = "LEFT"
 let Right = "RIGHT"
 let Stop = "STOP"
+let Direction = "STOP"
 ```
 ```blocks
-let Direction = "STOP"
 let Forwards = "FORWARDS"
 let Reverse = "REVERSE"
 let Left = "LEFT"
 let Right = "RIGHT"
 let Stop = "STOP"
+let Direction = "STOP"
 ```
-## Step ... - ... 
+## Show your micro:bit name 
 Let's start by dragging a ``||basic:Basic:show string||`` block into the top of ``||basic:on start||``.
-Now let's drag ``||control:Control:device name||`` into to ``||basic:show string||``; this will show our micro:bit's name. 
+Drag ``||control:Control:device name||`` into to ``||basic:show string||``; this will show your micro:bit's name. 
 ```blocks
 basic.showString(control.deviceName())
 let Direction = "STOP"
 let Forwards = "FORWARDS"
 ```
-
-## Step ... - ...
-Now add ``||radio:Radio:set group||`` ``||basic:on start||``; this will set your radio group number. Also, show your radio group number using ``||basic:Basic:show string||``. 
+## Set your radio group
+Drag a ``||radio:Radio:set group||`` block into ``||basic:on start||``; enter your radio group number. Use a ``||basic:Basic:show string||`` block to show your radio group number. 
 ```blocks
 basic.showString(control.deviceName())
 radio.setGroup(1)
@@ -37,20 +36,20 @@ basic.showString("1")
 let Direction = "STOP"
 let Forwards = "FORWARDS"
 ```
-## Step ... - Let's add a Loop block
+## Add a Loop block to your canvas
 To control your CuteBot, drag a ``||loops:Loops:every 500ms||`` block onto your canvas, change the 500ms to 100ms.
 ```blocks
 loops.everyInterval(100, function () {
 })
 ```
-## Step ... - Let's set our direction to stop
-First thing to do is to set ``||variables:Direction||`` to ``||variables:Stop||``. In the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
+## Set direction to stop
+Set your ``||variables:Direction||`` to ``||variables:Stop||``. To know which way to send your micro:bit, in the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
 ```blocks
 loops.everyInterval(100, function () {
 let Direction = Stop
 })
 ```
-## Step ... - Let's create the check for button A
+## Check for button A (left)
 Drag an ``||logic:if true then||`` block into the ``||loops:every 100ms||`` block. 
 Drag a ``||input:button A is pressed||`` block into the ``||logic:if true then||`` block. Drag a ``||variables:set Direction = 0||`` block inside the ``||logic:if||`` statement. Replace the 0 with ``||variables:Left||``.
 ```blocks
@@ -61,7 +60,7 @@ let Direction = Stop
     }
 })
 ```
-## Step ... - Let's create the check for button B
+## Check for button B (right)
 Duplicate the ``||logic:if button A is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button A is pressed||`` block; change the button to B and the direction to ``||variables:Right||``.
 ```blocks
 loops.everyInterval(100, function () {
@@ -74,7 +73,7 @@ let Direction = Stop
     }
 })
 ```
-## Step ... - Let's create the check for button A+B
+## Check for button A+B (forwards)
 Duplicate the ``||logic:if button B is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button B is pressed||`` block; change the button to A+B and the direction to ``||variables:Forwards||``.
 ```blocks
 loops.everyInterval(100, function () {
@@ -90,22 +89,18 @@ let Direction = Stop
     }
 })
 ```
-```
-## Step 4 - add a number comparision
-Drag a ``||logic:Logic:0=0||`` block into the if-block 
+## Check for tilt backwards (reverse)
+Drag an ``||logic:if true then||`` block into the bottom of the ``||loops:every 100ms||`` block. 
+Drag a ``||logic:Logic:0>0||`` comparision block into the ``||logic:if||`` block.
+Drag ``||input:Input:rotation||`` into left side of the number comparision and set to ">" 60 (greater than 60).
+Drag ``||variables:Variables: set xyz = 0||`` inside the ``||logic:if||`` block and set ``||variables:Direction||`` to ``||variables:Reverse||``.
 ```blocks
 loops.everyInterval(100, function () {
-    if (0 == 0) {
-    	
+    if (input.buttonIsPressed(Button.AB)) {
+        Direction = Forwards
     }
-})
-```
-## Step 5 - add pitch to left side of number comparision
-Drag ``||input:Input:rotation||`` into left side of the number comparision and set to ">" 60 (greater than 60)
-```blocks
-loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
-    	
+    	Direction = Reverse
     }
 })
 ```
