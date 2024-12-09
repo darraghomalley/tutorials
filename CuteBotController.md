@@ -1,5 +1,4 @@
 ### @explicitHints false
-
 # STEM - CuteBot Controller 
 ## Let's build a robot controller  @showdialog
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
@@ -28,7 +27,7 @@ Let's start by dragging a ``||basic:Basic:show string||`` block into the top of 
 Drag ``||control:Control:device name||`` into to ``||basic:show string||``; this will show your micro:bit's name. 
 
 ```blocks
-//@highlight
+// @highlight
 basic.showString(control.deviceName())
 let Forwards = "FORWARDS"
 let Reverse = "REVERSE"
