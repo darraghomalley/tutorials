@@ -54,6 +54,7 @@ let Direction = "STOP"
 ## Add a Loop block to your canvas
 To control your CuteBot, drag a ``||loops:Loops:every 500ms||`` block onto your canvas, change the 500ms to 100ms.
 ```blocks
+// @highlight
 loops.everyInterval(100, function () {
 })
 ```
@@ -61,6 +62,7 @@ loops.everyInterval(100, function () {
 Set your ``||variables:Direction||`` to ``||variables:Stop||``. To know which way to send your micro:bit, in the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
 ```blocks
 loops.everyInterval(100, function () {
+// @highlight
 let Direction = Stop
 })
 ```
@@ -70,7 +72,9 @@ Drag a ``||input:button A is pressed||`` block into the ``||logic:if true then||
 ```blocks
 loops.everyInterval(100, function () {
 let Direction = Stop
+    // @highlight
     if (input.buttonIsPressed(Button.A)) {
+        // @highlight
         Direction = Left
     }
 })
