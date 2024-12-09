@@ -1,4 +1,4 @@
-### @explicitHints true
+### @explicitHints false
 
 # STEM - CuteBot Controller 
 ## Let's build a robot controller  @showdialog
