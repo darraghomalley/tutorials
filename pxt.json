@@ -1,6 +1,6 @@
 {
     "name": "Tutorials",
-    "version": "0.1.26",
+    "version": "0.1.27",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -13,7 +13,8 @@
         "CodeClubBadge.md",
         "QuickDraw.md",
         "CuteBotController.md",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
