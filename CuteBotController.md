@@ -127,7 +127,6 @@ let Direction = Stop
     if (input.buttonIsPressed(Button.B)) {
         Direction = Right
     }
-   
     if (input.buttonIsPressed(Button.AB)) {
         Direction = Forwards
     }
