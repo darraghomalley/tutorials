@@ -1,8 +1,12 @@
 ### @explicitHints true
-# STEM - CuteBot Controller
-## Let's build a robot controller 
+
+# STEM - CuteBot Controller 
+## Let's build a robot controller  @showdialog
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
-To help you out, we've created some variables that you will need later: ``||variables: Forwards, Reverse, Left, Right, Stop||``. Click ``|Next|``
+To help you out, we've created some variables that you will need later: ``||variables: Forwards, Reverse, Left, Right, Stop||``.
+```validation.global
+# BlocksExistValidator
+```
 ```template
 let Forwards = "FORWARDS"
 let Reverse = "REVERSE"
@@ -22,19 +26,31 @@ let Direction = "STOP"
 ## Show your micro:bit name 
 Let's start by dragging a ``||basic:Basic:show string||`` block into the top of ``||basic:on start||``.
 Drag ``||control:Control:device name||`` into to ``||basic:show string||``; this will show your micro:bit's name. 
+
 ```blocks
+//@highlight
 basic.showString(control.deviceName())
-let Direction = "STOP"
 let Forwards = "FORWARDS"
+let Reverse = "REVERSE"
+let Left = "LEFT"
+let Right = "RIGHT"
+let Stop = "STOP"
+let Direction = "STOP"
 ```
 ## Set your radio group
 Drag a ``||radio:Radio:set group||`` block into ``||basic:on start||``; enter your radio group number. Use a ``||basic:Basic:show string||`` block to show your radio group number. 
 ```blocks
 basic.showString(control.deviceName())
+//@highlight
 radio.setGroup(1)
+//@highlight
 basic.showString("1")
-let Direction = "STOP"
 let Forwards = "FORWARDS"
+let Reverse = "REVERSE"
+let Left = "LEFT"
+let Right = "RIGHT"
+let Stop = "STOP"
+let Direction = "STOP"
 ```
 ## Add a Loop block to your canvas
 To control your CuteBot, drag a ``||loops:Loops:every 500ms||`` block onto your canvas, change the 500ms to 100ms.
