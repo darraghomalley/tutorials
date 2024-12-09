@@ -61,8 +61,8 @@ loops.everyInterval(100, function () {
 ## Set direction to stop
 Set your ``||variables:Direction||`` to ``||variables:Stop||``. To know which way to send your micro:bit, in the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
 ```blocks
-loops.everyInterval(100, function () {
 // @highlight
+loops.everyInterval(100, function () {
 let Direction = Stop
 })
 ```
@@ -70,11 +70,10 @@ let Direction = Stop
 Drag an ``||logic:if true then||`` block into the ``||loops:every 100ms||`` block. 
 Drag a ``||input:button A is pressed||`` block into the ``||logic:if true then||`` block. Drag a ``||variables:set Direction = 0||`` block inside the ``||logic:if||`` statement. Replace the 0 with ``||variables:Left||``.
 ```blocks
+// @highlight
 loops.everyInterval(100, function () {
 let Direction = Stop
-    // @highlight
     if (input.buttonIsPressed(Button.A)) {
-        // @highlight
         Direction = Left
     }
 })
