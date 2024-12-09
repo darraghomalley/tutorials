@@ -13,7 +13,8 @@
         "CodeClubBadge.md",
         "QuickDraw.md",
         "CuteBotController.md",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
