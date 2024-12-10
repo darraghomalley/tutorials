@@ -24,6 +24,8 @@ basic.showString(control.deviceName())
 radio.setGroup(1)
 // @highlight
 basic.showString("1")
+basic.pause(300)
+basic.clearScreen()
 ```
 ## Add a Forever block to your canvas for button A
 To control your CuteBot, drag a ``||basic:Basic:Forever||`` block onto your canvas
