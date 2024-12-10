@@ -19,7 +19,6 @@ basic.showString(control.deviceName())
 ## Set your radio group
 Drag a ``||radio:Radio:set group||`` block into ``||basic:on start||``; enter your radio group number. Use a ``||basic:Basic:show string||`` block to show your radio group number. 
 ```blocks
-// @showdialog
 basic.showString(control.deviceName())
 // @highlight
 radio.setGroup(1)
@@ -38,7 +37,16 @@ Set your ``||variables:Direction||`` to ``||variables:Stop||``. To know which wa
 ```blocks
   loops.everyInterval(100, function () {
 // @highlight
-    if (0 > 0) {
+    if (true) {
+}
+})
+```
+## Set direction to stop
+Set your ``||variables:Direction||`` to ``||variables:Stop||``. To know which way to send your micro:bit, in the following steps we will check if A, B or A+B are pressed. We will also check if the micro:bit is tilted backwards.
+```blocks
+  loops.everyInterval(100, function () {
+// @highlight
+    if (0 == 0) {
 }
 })
 ```
@@ -91,12 +99,19 @@ Drag a ``||input:button A is pressed||`` block into the ``||logic:if true then||
 Duplicate the ``||logic:if button A is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button A is pressed||`` block; change the button to B and the direction to ``||variables:Right||``.
 ```blocks
 loops.everyInterval(100, function () {
-let Direction = Stop
-    if (input.buttonIsPressed(Button.A)) {
-        Direction = Left
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        Direction = Right
+    if (input.rotation(Rotation.Pitch) > 60) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (false) {
+    	
+    } else {
+    	
     }
 })
 ```
@@ -104,114 +119,335 @@ let Direction = Stop
 Duplicate the ``||logic:if button B is pressed||`` block (right click, then duplicate) and drag it underneath the ``||logic:if button B is pressed||`` block; change the button to A+B and the direction to ``||variables:Forwards||``.
 ```blocks
 loops.everyInterval(100, function () {
-let Direction = Stop
-    if (input.buttonIsPressed(Button.A)) {
-        Direction = Left
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        Direction = Right
-    }
-    if (input.buttonIsPressed(Button.AB)) {
-        Direction = Forwards
+    if (input.rotation(Rotation.Pitch) > 60) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    	
+    } else {
+    	
     }
 })
 ```
 ## Check for tilt backwards (reverse)
-Drag an ``||logic:if true then||`` block into the bottom of the ``||loops:every 100ms||`` block. 
-Drag a ``||logic:Logic:0>0||`` comparision block into the ``||logic:if||`` block.
-Drag ``||input:Input:rotation||`` into left side of the number comparision and set to ">" 60 (greater than 60).
-Drag ``||variables:Variables: set xyz = 0||`` inside the ``||logic:if||`` block and set ``||variables:Direction||`` to ``||variables:Reverse||``.
+Test some stuff out
 ```blocks
 loops.everyInterval(100, function () {
-    if (input.buttonIsPressed(Button.AB)) {
-        Direction = Forwards
-    }
     if (input.rotation(Rotation.Pitch) > 60) {
-    	Direction = Reverse
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
+    } else {
+    	
     }
 })
 ```
-## Step 6 - Add radio send "Backwards"
+## Add radio send "Forwards"
 Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
-        radio.sendString("Backwards")    	
-    }
-})
-```
-## Step 7 - Click "+" twice to show an else-if placeholder
-Click "+" at the bottom of the if-block twice to show an else-if placeholder 
-```blocks
-loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) > 60) {
-        radio.sendString("Backwards")
-    } else if (true) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
+    } else if (false) {
     	
     } else {
     	
     }
 })
 ```
-## Step 8 - Add button A+B is pressed to go forwards 
-Add ``||input:Input:button A+B is pressed||`` to the else-if and add a ``||radio:Radio:send string||`` block to send "Forwards" 
-```blocks
-loops.everyInterval(100, function () {
-    if (input.rotation(Rotation.Pitch) == 60) {
-        radio.sendString("Backwards")
-    } else if (input.buttonIsPressed(Button.AB)) {
-        radio.sendString("Forwards")
-    } else {
-    	
-    }
-})
-```
-## Step 9 - Add button A is pressed to go left 
-Add ``||input:Input:button A is pressed||`` to the else-if and add a ``||radio:Radio:send string||`` block to send "Left" 
+## Add radio send "Forwards"
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
-        radio.sendString("Backwards")
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
     } else if (input.buttonIsPressed(Button.AB)) {
-        radio.sendString("Forwards")
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
     } else if (input.buttonIsPressed(Button.A)) {
-        radio.sendString("Left")
-    
+    	
     } else {
+    	
     }
 })
 ```
-## Step 10 - Add button B is pressed to go right 
-Add ``||input:Input:button B is pressed||`` to the else-if and add a ``||radio:Radio:send string||`` block to send "Right" 
+## Add radio send "Left"
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
-        radio.sendString("Backwards")
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
     } else if (input.buttonIsPressed(Button.AB)) {
-        radio.sendString("Forwards")
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
     } else if (input.buttonIsPressed(Button.A)) {
-        radio.sendString("Left")
+    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . . .
+            # . . . .
+            . # . . .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("L")
+    } else {
+    	
+    }
+})
+```
+## Add radio send "Left"
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
+    } else if (input.buttonIsPressed(Button.A)) {
+    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . . .
+            # . . . .
+            . # . . .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("L")
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+})
+```
+## Click + to add an else if
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
+    } else if (input.buttonIsPressed(Button.A)) {
+    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . . .
+            # . . . .
+            . # . . .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("L")
     } else if (input.buttonIsPressed(Button.B)) {
-        radio.sendString("Right")
-    
+    	
     } else {
+    	
     }
 })
 ```
-## Step 11 - Complete the if-block by adding the "Stop" radio message 
-Complete the if-block by adding a ``||radio:Radio:send string||`` block to send "Stop" 
+## Add radio send Right
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
 ```blocks
 loops.everyInterval(100, function () {
     if (input.rotation(Rotation.Pitch) > 60) {
-        radio.sendString("Backwards")
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
     } else if (input.buttonIsPressed(Button.AB)) {
-        radio.sendString("Forwards")
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
     } else if (input.buttonIsPressed(Button.A)) {
-        radio.sendString("Left")
+    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . . .
+            # . . . .
+            . # . . .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("L")
     } else if (input.buttonIsPressed(Button.B)) {
-        radio.sendString("Right")
+    	    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . . . # .
+            . . . . #
+            . . . # .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("R")
     } else {
-        radio.sendString("Stop")
+    	
+    }
+})
+```
+## Add radio send Stop
+Drag ``||radio:Radio:send string||`` into the if-block and send the value "Backwards" 
+```blocks
+loops.everyInterval(100, function () {
+    if (input.rotation(Rotation.Pitch) > 60) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        radio.sendString("B")
+    } else if (input.buttonIsPressed(Button.AB)) {
+    // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        // @highlight
+        radio.sendString("F")
+    } else if (input.buttonIsPressed(Button.A)) {
+    	 // @highlight
+    basic.showLeds(`
+            . . # . .
+            . # . . .
+            # . . . .
+            . # . . .
+            . . # . .
+            `)
+        // @highlight
+        radio.sendString("L")
+    } else if (input.buttonIsPressed(Button.B)) {
+    basic.showLeds(`
+            . . # . .
+            . . . # .
+            . . . . #
+            . . . # .
+            . . # . .
+            `)
+        radio.sendString("R")
+    } else {
+    // @highlight
+        radio.sendString("S")    	
     }
 })
 ```
