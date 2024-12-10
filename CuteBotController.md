@@ -1,4 +1,4 @@
-### @explicitHints false
+### @explicitHints true
 # STEM - CuteBot Controller 
 ## Let's build a robot controller  @showdialog
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
