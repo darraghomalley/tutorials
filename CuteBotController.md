@@ -1,4 +1,4 @@
-### @explicitHints true
+### @explicitHints false
 # STEM - CuteBot Controller 
 ## Let's build a robot controller  @showdialog
 Let's build a micro:bit project that will drive a CuteBot by sending messages over radio signal.
@@ -6,12 +6,30 @@ Let's build a micro:bit project that will drive a CuteBot by sending messages ov
 # BlocksExistValidator
 ```
 ```template
+// @highlight
 let A_button_IS_pressed = "A button IS pressed"
+// @highlight
 let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+// @highlight
 let B_button_IS_pressed = "B button IS pressed"
+// @highlight
 let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+// @highlight
 let RainbowLights = "RainbowLights"
-
+```
+## To help you out later on, we have added these variables for you  @showdialog
+You will drag these onto your canvas later on
+```blocks
+// @highlight
+let A_button_IS_pressed = "A button IS pressed"
+// @highlight
+let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+// @highlight
+let B_button_IS_pressed = "B button IS pressed"
+// @highlight
+let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+// @highlight
+let RainbowLights = "RainbowLights"
 ```
 ## Show your micro:bit name when it starts up!
 Let's start by dragging a ``||basic:Basic:show string||`` block into the top of ``||basic:on start||``.
@@ -20,6 +38,11 @@ Drag ``||control:Control:device name||`` into to ``||basic:show string||``; this
 ```blocks
 // @highlight
 basic.showString(control.deviceName())
+let A_button_IS_pressed = "A button IS pressed"
+let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+let B_button_IS_pressed = "B button IS pressed"
+let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let RainbowLights = "RainbowLights"
 ```
 ## Set your radio group
 Drag a ``||radio:Radio:set group||`` block into ``||basic:on start||``; enter your radio group number.
@@ -35,6 +58,11 @@ basic.showString("1")
 basic.pause(300)
 // @highlight
 basic.clearScreen()
+let A_button_IS_pressed = "A button IS pressed"
+let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+let B_button_IS_pressed = "B button IS pressed"
+let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let RainbowLights = "RainbowLights"
 ```
 ## Add a forever block to your canvas, we will use this to know when button A is pressed
 To control your CuteBot, drag a ``||basic:Basic:Forever||`` block onto your canvas
