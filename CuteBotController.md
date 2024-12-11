@@ -69,9 +69,12 @@ To control your CuteBot, drag a ``||basic:Basic:Forever||`` block onto your canv
 ```blocks
 // @highlight
 basic.forever(function () {
+// @highlight
     if (input.buttonIsPressed(Button.A)) {
+// @highlight
         radio.sendString(A_button_IS_pressed)
     } else {
+// @highlight
         radio.sendString(A_button_IS_NOT_pressed)
     }
 })
