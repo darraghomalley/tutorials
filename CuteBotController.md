@@ -15,6 +15,8 @@ let B_button_IS_pressed = "B button IS pressed"
 // @highlight
 let B_button_IS_NOT_pressed = "B button IS NOT pressed"
 // @highlight
+let Pitch = "Pitch"
+// @highlight
 let RainbowLights = "RainbowLights"
 ```
 ## To help you out later on, we have added these variables for you  @showdialog
@@ -96,7 +98,7 @@ Use a ``||radio:Radio:radio send value " "||`` block and drag ``||input:Input:ro
 ```blocks
 basic.forever(function () {
 // @highlight
-    radio.sendValue("Pitch", input.rotation(Rotation.Pitch))
+    radio.sendValue(Pitch, input.rotation(Rotation.Pitch))
 })
 ```
 
@@ -141,7 +143,7 @@ basic.forever(function () {
 })
 ```
 ## Now let's add plot & unplot to our button B forever loop
-The top left pixel will light up while B is pressed, to turn it on we need ``||led:Led:plot x 4 y 0||`` and to turn it off we need ``||led:Led:unplot x 4 y 0||``
+The top right pixel will light up while B is pressed, to turn it on we need ``||led:Led:plot x 4 y 0||`` and to turn it off we need ``||led:Led:unplot x 4 y 0||``
 ```blocks
 basic.forever(function () {
     if (input.buttonIsPressed(Button.B)) {
@@ -172,7 +174,7 @@ basic.forever(function () {
 })
 ```
 ## Drag a number comparison block into the if statement
-Drag a ``||logic:Logic:Comparison:< 0 = 0 >||`` block into the ``||logic:if else ||`` statement.
+Drag a ``||logic:Logic:< 0 = 0 >||`` block into the ``||logic:if else ||`` statement.
 ```blocks
 basic.forever(function () {
  // @highlight
@@ -188,7 +190,7 @@ Drag ``||input:Input:rotation (º) pitch||`` into the left side of the compariso
 ```blocks
 basic.forever(function () {
  // @highlight
-    if (input.rotation(Rotation.Pitch) == 60) {
+    if (input.rotation(Rotation.Pitch) > 60) {
     	
     } else {
     	
