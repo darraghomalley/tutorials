@@ -7,13 +7,13 @@ Let's build a micro:bit project that will drive a CuteBot by sending messages ov
 ```
 ```template
 // @highlight
-let A_button_IS_pressed = "A button IS pressed"
+let A_ButtonIsPressed = "A button IS pressed"
 // @highlight
-let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+let A_ButtonIsNotPressed = "A button IS NOT pressed"
 // @highlight
-let B_button_IS_pressed = "B button IS pressed"
+let B_ButtonIsPressed = "B button IS pressed"
 // @highlight
-let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let B_ButtonIsNotPressed = "B button IS NOT pressed"
 // @highlight
 let Pitch = "Pitch"
 // @highlight
@@ -23,13 +23,13 @@ let RainbowLights = "RainbowLights"
 You will drag these onto your canvas later on
 ```blocks
 // @highlight
-let A_button_IS_pressed = "A button IS pressed"
+let A_ButtonIsPressed = "A button IS pressed"
 // @highlight
-let A_button_IS_NOT_pressed = "A button IS NOT pressed"
+let A_ButtonIsNotPressed = "A button IS NOT pressed"
 // @highlight
-let B_button_IS_pressed = "B button IS pressed"
+let B_ButtonIsPressed = "B button IS pressed"
 // @highlight
-let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let B_ButtonIsNotPressed = "B button IS NOT pressed"
 // @highlight
 let RainbowLights = "RainbowLights"
 ```
@@ -40,10 +40,10 @@ Drag ``||control:Control:device name||`` into to ``||basic:show string||``; this
 ```blocks
 // @highlight
 basic.showString(control.deviceName())
-let A_button_IS_pressed = "A button IS pressed"
-let A_button_IS_NOT_pressed = "A button IS NOT pressed"
-let B_button_IS_pressed = "B button IS pressed"
-let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let A_ButtonIsPressed = "A button IS pressed"
+let A_ButtonIsNotPressed = "A button IS NOT pressed"
+let B_ButtonIsPressed = "B button IS pressed"
+let B_ButtonIsNotPressed = "B button IS NOT pressed"
 let RainbowLights = "RainbowLights"
 ```
 ## Set your radio group
@@ -60,10 +60,10 @@ basic.showString("1")
 basic.pause(300)
 // @highlight
 basic.clearScreen()
-let A_button_IS_pressed = "A button IS pressed"
-let A_button_IS_NOT_pressed = "A button IS NOT pressed"
-let B_button_IS_pressed = "B button IS pressed"
-let B_button_IS_NOT_pressed = "B button IS NOT pressed"
+let A_ButtonIsPressed = "A button IS pressed"
+let A_ButtonIsNotPressed = "A button IS NOT pressed"
+let B_ButtonIsPressed = "B button IS pressed"
+let B_ButtonIsNotPressed = "B button IS NOT pressed"
 let RainbowLights = "RainbowLights"
 ```
 ## Add a forever block to your canvas, we will use this to know when button A is pressed
@@ -71,24 +71,61 @@ To control your CuteBot, drag a ``||basic:Basic:Forever||`` block onto your canv
 ```blocks
 // @highlight
 basic.forever(function () {
+
+})
+```
+## Add an if true then else block to your forever block
+Drag a ``||logic:Logic:if true then else||`` block into your ``||basic:Basic:Forever||`` loop
+```blocks
+
+basic.forever(function () {
 // @highlight
-    if (input.buttonIsPressed(Button.A)) {
-// @highlight
-        radio.sendString(A_button_IS_pressed)
+    if (true) {
     } else {
-// @highlight
-        radio.sendString(A_button_IS_NOT_pressed)
     }
 })
 ```
-## Add another forever block to your canvas, we will use this to know when button B is pressed
-Drag another ``||basic:Basic:Forever||`` block onto your canvas
+## Add code that checks if button A is pressed
+Drag a ``||input:Input:button A is pressed||`` block into your if statement
+```blocks
+basic.forever(function () {
+// @highlight
+    if (input.buttonIsPressed(Button.A)) {
+    } else {
+    }
+})
+```
+## Add code to send a radio signal if the A button is pressed
+Drag a ``||radio:Radio:send string||`` block into the top of the ``||logic:if||`` block, then drag the ``||variables:Variable:A_ButtonIsPressed||`` variable into the ``||radio:Radio:send string||`` block
+```blocks
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+// @highlight
+        radio.sendString(A_ButtonIsPressed)
+    } else {
+    }
+})
+```
+## Add code to send a radio signal if the A button is not pressed
+Drag a ``||radio:Radio:send string||`` block into the bottom of the ``||logic:if||`` block, then drag the ``||variables:Variable:A_ButtonIsNotPressed||`` variable into the ``||radio:Radio:send string||`` block
+```blocks
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+        radio.sendString(A_ButtonIsPressed)
+    } else {
+// @highlight
+        radio.sendString(A_ButtonIsNotPressed)
+    }
+})
+```
+## To create a B button forever block, right click the A button forever block and duplicate it
+Change the new block so that it works for the B button
 ```blocks
 basic.forever(function () {
     if (input.buttonIsPressed(Button.B)) {
-        radio.sendString(B_button_IS_pressed)
+        radio.sendString(B_ButtonIsPressed)
     } else {
-        radio.sendString(B_button_IS_NOT_pressed)
+        radio.sendString(B_ButtonIsNotPressed)
     }
 })
 ```
@@ -113,7 +150,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 ## Download and test your code!
 Click ``|Download|`` to download your code onto your micro:bit to see it working, or click ``|Next|`` for stretch activities
 
-## Let's use some pixels to know which way we are sending our CuteBot  @showdialog
+## If you have time, let's use some pixels to know which way we are sending our CuteBot @showdialog
 We can use the ``||led:Led:plot||`` block to turn ON a pixel.
 We can use the ``||led:Led:unplot||`` block to turn OFF a pixel.
 ``||led:plot||`` and ``||led:unplot||`` work like ``||basic:Basic:ShowLeds||`` block; however, they control the pixels on their own.
@@ -132,11 +169,11 @@ The top left pixel will light up while A is pressed, to turn it on we need ``||l
 ```blocks
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
-        radio.sendString(A_button_IS_pressed)
+        radio.sendString(A_ButtonIsPressed)
 // @highlight
         led.plot(0, 0)
     } else {
-        radio.sendString(A_button_IS_NOT_pressed)
+        radio.sendString(A_ButtonIsNotPressed)
 // @highlight
         led.unplot(0, 0)
     }
@@ -147,11 +184,11 @@ The top right pixel will light up while B is pressed, to turn it on we need ``||
 ```blocks
 basic.forever(function () {
     if (input.buttonIsPressed(Button.B)) {
-        radio.sendString(B_button_IS_pressed)
+        radio.sendString(B_ButtonIsPressed)
 // @highlight
         led.plot(4, 0)
     } else {
-        radio.sendString(B_button_IS_NOT_pressed)
+        radio.sendString(B_ButtonIsNotPressed)
  // @highlight
         led.unplot(4, 0)
     }
