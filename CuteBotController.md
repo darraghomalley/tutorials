@@ -19,7 +19,7 @@ let Pitch = "Pitch"
 // @highlight
 let RainbowLights = "RainbowLights"
 ```
-## To help you out later on, we have added these variables for you  @showdialog
+## To help you out, we have added these variables for you  @showdialog
 You will drag these onto your canvas later on
 ```blocks
 // @highlight
