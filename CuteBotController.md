@@ -121,6 +121,7 @@ basic.forever(function () {
 ## To create a B button forever block, right click the A button forever block and duplicate it
 Change the new block so that it works for the B button
 ```blocks
+// @highlight
 basic.forever(function () {
     if (input.buttonIsPressed(Button.B)) {
         radio.sendString(B_ButtonIsPressed)
