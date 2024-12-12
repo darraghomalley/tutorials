@@ -49,7 +49,7 @@ let RainbowLights = "RainbowLights"
 ## Set your radio group
 Drag a ``||radio:Radio:set group||`` block into ``||basic:on start||``; enter your radio group number.
 Use a ``||basic:Basic:show string||`` block to show your radio group number. 
-Add a ``||basic:Basic:pause||`` and set ms to 300 and add ``||basic:Basic:clear screen||``
+Add a ``||basic:Basic:pause||`` and set ms to 500 and add ``||basic:Basic:clear screen||``
 ```blocks
 basic.showString(control.deviceName())
 // @highlight
@@ -57,7 +57,7 @@ radio.setGroup(1)
 // @highlight
 basic.showString("1")
 // @highlight
-basic.pause(300)
+basic.pause(500)
 // @highlight
 basic.clearScreen()
 let A_ButtonIsPressed = "A button IS pressed"
